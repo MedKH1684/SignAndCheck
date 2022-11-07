@@ -17,8 +17,7 @@ if "uploads" not in os.listdir("."):
 
 #create PUB/PRIV server keys
 if "server_private_key.pem" not in os.listdir("."):
-   os.system("openssl genrsa -aes128 -passout pass:foobar -out server_private_key.pem 3072")
-   os.system("openssl rsa -in server_private_key.pem  -passin pass:iccn -pubout -out server_public_key.pem")
+   os.system("openssl genrsa -aes128 -passout pass:iccn -out server_private_key.pem 3072 && openssl rsa -in server_private_key.pem  -passin pass:iccn -pubout -out server_public_key.pem")
 
 # clear uploaded files + signatures
 os.system("rm -rf signatures/* uploads/* verification/*")
